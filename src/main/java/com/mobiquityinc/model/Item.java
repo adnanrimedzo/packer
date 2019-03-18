@@ -8,7 +8,7 @@ public class Item {
     private double weight;
     private double cost;
 
-    public Item(int index, double weight, double cost){
+    public Item(int index, double weight, double cost) {
         this.index = index;
         this.weight = weight;
         this.cost = cost;

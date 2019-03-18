@@ -11,7 +11,7 @@ public class PackerApplicationTestIT {
     private static final String RESULT = "4\n" +
             "-\n" +
             "2,7\n" +
-            "6,9";
+            "8,9";
     private static final String INVALID_COMMAND = "Invalid command: EMPTY COMMAND";
     private static final String INVALID_FILE = "Api exception: INVALID FILE";
 

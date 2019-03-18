@@ -10,7 +10,7 @@ public class Pack {
     private double weight;
     private double cost;
 
-    public Pack(List<Item> itemList, double weight, double cost){
+    public Pack(List<Item> itemList, double weight, double cost) {
         this.itemList = itemList;
         this.weight = weight;
         this.cost = cost;
@@ -29,8 +29,8 @@ public class Pack {
     }
 
     @Override
-    public String toString(){
-        if(itemList.isEmpty()) {
+    public String toString() {
+        if (itemList.isEmpty()) {
             return "-";
         }
 

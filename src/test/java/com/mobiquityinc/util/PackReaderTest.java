@@ -45,6 +45,6 @@ public class PackReaderTest {
 
         //then
         assertThat(throwable).isNotNull();
-        assertThat(throwable).hasMessage("INVALID FILE");
+        assertThat(throwable).isInstanceOf(APIException.class).hasMessage("INVALID FILE");
     }
 }

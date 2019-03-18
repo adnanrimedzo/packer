@@ -2,11 +2,11 @@ package com.mobiquityinc.util;
 
 import com.mobiquityinc.exception.APIException;
 import com.mobiquityinc.model.Item;
-import com.mobiquityinc.model.Pack;
 import com.mobiquityinc.model.PackSpecs;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -45,6 +45,7 @@ public class PackReader {
         while (m.find()) {
             itemList.add(readItem(m.group(1)));
         }
+        itemList.sort(Comparator.comparingDouble(Item::getWeight));
 
         return new PackSpecs(itemList, maxWeight);
     }

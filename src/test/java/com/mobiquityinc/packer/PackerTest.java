@@ -1,6 +1,12 @@
 package com.mobiquityinc.packer;
 
 import com.mobiquityinc.exception.APIException;
+import com.mobiquityinc.model.Item;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import com.mobiquityinc.model.Pack;
 import org.junit.Test;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
@@ -13,7 +19,7 @@ public class PackerTest {
     private static final String RESULT = "4\n" +
             "-\n" +
             "2,7\n" +
-            "6,9";
+            "8,9";
 
     @Test
     public void should_return_list() throws APIException {
@@ -31,6 +37,28 @@ public class PackerTest {
 
         //then
         assertThat(throwable).isNotNull();
-        assertThat(throwable).hasMessage("INVALID FILE");
+        assertThat(throwable).isInstanceOf(APIException.class).hasMessage("INVALID FILE");
+    }
+
+    @Test
+    public void knapsack() {
+        //given
+        List<Item> itemList = new LinkedList<>();
+        itemList.add(new Item(1, 53.38, 45.0));
+        itemList.add(new Item(2, 88.62, 98.0));
+        itemList.add(new Item(3, 10.70, 51.0));
+        itemList.add(new Item(4, 34.98, 12.0));
+
+        List<Item> itemListPack = new LinkedList<>();
+        itemListPack.add(new Item(1, 53.38, 45.0));
+        itemListPack.add(new Item(3, 10.70, 51.0));
+
+        Pack pack = new Pack(itemListPack, 64.08, 96.0);
+
+        //when
+        Pack result = Packer.knapsackUnbounded(80.0, itemList);
+
+        //then
+        assertThat(result).isEqualTo(pack);
     }
 }

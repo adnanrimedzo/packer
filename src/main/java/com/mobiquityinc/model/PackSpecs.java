@@ -1,15 +1,13 @@
 package com.mobiquityinc.model;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class PackSpecs {
     private List<Item> itemList;
     private double weightLimit;
 
-    public PackSpecs(List<Item> itemList, double weightLimit){
+    public PackSpecs(List<Item> itemList, double weightLimit) {
         this.itemList = itemList;
         this.weightLimit = weightLimit;
     }
