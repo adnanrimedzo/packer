@@ -45,7 +45,7 @@ public class Pack {
         Pack pack = (Pack) o;
         return Double.compare(pack.weight, weight) == 0 &&
                 Double.compare(pack.cost, cost) == 0 &&
-                Objects.equals(itemList, pack.itemList);
+                itemList.equals(this.itemList);
     }
 
     @Override
